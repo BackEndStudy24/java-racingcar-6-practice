@@ -11,4 +11,8 @@ public class Controller {
     private void clientInput_CarNames() {
         String rawInput = InputView.getInput();
     }
+
+    private void clientInput_MoveCount() {
+        String rawMoveCount = InputView.getMoveCount();
+    }
 }
