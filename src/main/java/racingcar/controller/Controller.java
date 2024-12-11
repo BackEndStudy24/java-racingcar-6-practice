@@ -34,9 +34,11 @@ public class Controller {
         int moveCount = Integer.parseInt(rawMoveCount);
         ServiceValidation.validateMoveCount(moveCount);
 
+        moveCar(moveCount);
+
     }
 
     private void moveCar(int moveCount) {
-
+        moveCar.createCars(carNames.getCarNames(), moveCount);
     }
 }

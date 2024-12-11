@@ -15,4 +15,14 @@ public class CarName {
             this.moveCount += 1;
         }
     }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public String getCarName() {
+        return carName;
+    }
+
+
 }
