@@ -5,6 +5,7 @@ import racingcar.model.MoveCar;
 import racingcar.model.Winners;
 import racingcar.utils.ServiceValidation;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Controller {
 
@@ -42,6 +43,7 @@ public class Controller {
     }
 
     private void moveCar(int moveCount) {
+        OutputView.printGameResults();
         moveCar.createCars(carNames.getCarNames(), moveCount);
     }
 
