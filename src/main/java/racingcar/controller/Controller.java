@@ -14,8 +14,8 @@ public class Controller {
     private final Winners winners = new Winners(moveCar);
 
     public void start() {
-        clientInput_CarNames();
-        clientInput_MoveCount();
+        runWithRetry(this::clientInput_CarNames);
+        runWithRetry(this::clientInput_MoveCount);
     }
 
     private void clientInput_CarNames() {
@@ -52,5 +52,18 @@ public class Controller {
         String winner = winners.getWinners().toString();
         winner = winner.replaceAll("[\\[\\]]", "");
         OutputView.printGameWinners(winner);
+    }
+
+
+    private void runWithRetry(Runnable serviceMethod) {
+        boolean success = false;
+        while (!success) {
+            try {
+                serviceMethod.run();
+                success = true;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
