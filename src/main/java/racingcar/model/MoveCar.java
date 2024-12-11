@@ -1,14 +1,14 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MoveCar {
 
     private static final String HYPHEN = "-";
 
-    private List<CarName> cars = new ArrayList<>();
-
+    private final List<CarName> cars = new ArrayList<>();
 
     public void createCars(List<String> carNames, int moveCount) {
 
@@ -19,7 +19,7 @@ public class MoveCar {
     }
 
     public void playGames(int moveCount) {
-        for(int i = 0; i< moveCount; i++) {
+        for (int i = 0; i < moveCount; i++) {
             for (CarName car : cars) {
                 car.move_forward();
                 System.out.println(car.getCarName() + " : " + HYPHEN.repeat(car.getMoveCount()));
@@ -28,4 +28,7 @@ public class MoveCar {
         }
     }
 
+    public List<CarName> getCars() {
+        return Collections.unmodifiableList(new ArrayList<>(cars));
+    }
 }

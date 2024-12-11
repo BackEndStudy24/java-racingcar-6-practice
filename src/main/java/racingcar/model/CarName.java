@@ -11,7 +11,7 @@ public class CarName {
     }
 
     public void move_forward() {
-        if(RandomNumber.getMoveChance()) {
+        if (RandomNumber.getMoveChance()) {
             this.moveCount += 1;
         }
     }

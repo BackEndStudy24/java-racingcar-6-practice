@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.CarNames;
 import racingcar.model.MoveCar;
+import racingcar.model.Winners;
 import racingcar.utils.ServiceValidation;
 import racingcar.view.InputView;
 
@@ -9,6 +10,7 @@ public class Controller {
 
     private final CarNames carNames = new CarNames();
     private final MoveCar moveCar = new MoveCar();
+    private final Winners winners = new Winners(moveCar);
 
     public void start() {
         clientInput_CarNames();
@@ -35,10 +37,15 @@ public class Controller {
         ServiceValidation.validateMoveCount(moveCount);
 
         moveCar(moveCount);
+        printWinners();
 
     }
 
     private void moveCar(int moveCount) {
         moveCar.createCars(carNames.getCarNames(), moveCount);
+    }
+
+    private void printWinners() {
+        winners.printGetWinner();
     }
 }
