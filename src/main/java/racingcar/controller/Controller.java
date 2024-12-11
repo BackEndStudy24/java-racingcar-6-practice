@@ -1,16 +1,18 @@
 package racingcar.controller;
 
 import racingcar.model.CarNames;
+import racingcar.model.MoveCar;
 import racingcar.utils.ServiceValidation;
 import racingcar.view.InputView;
 
 public class Controller {
 
     private final CarNames carNames = new CarNames();
+    private final MoveCar moveCar = new MoveCar();
 
     public void start() {
         clientInput_CarNames();
-//        clientInput_MoveCount();
+        clientInput_MoveCount();
     }
 
     private void clientInput_CarNames() {
@@ -22,7 +24,6 @@ public class Controller {
 
     private void checkedCarNames(String rawInput) {
         carNames.setCarNames(rawInput);
-        System.out.println(carNames.getCarNames());
     }
 
 
@@ -33,6 +34,9 @@ public class Controller {
         int moveCount = Integer.parseInt(rawMoveCount);
         ServiceValidation.validateMoveCount(moveCount);
 
+    }
+
+    private void moveCar(int moveCount) {
 
     }
 }

@@ -4,6 +4,7 @@ import racingcar.utils.ServiceValidation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CarNames {
@@ -31,7 +32,9 @@ public class CarNames {
                 .toList();
     }
 
+
+    // 방어적 복사
     public List<String> getCarNames() {
-        return carNames;
+        return Collections.unmodifiableList(new ArrayList<>(carNames));
     }
 }
