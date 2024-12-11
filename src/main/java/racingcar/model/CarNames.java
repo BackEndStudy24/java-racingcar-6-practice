@@ -17,6 +17,7 @@ public class CarNames {
         List<String> carNameList = separateComma(rawInput);
         ServiceValidation.validateCarNameLength(carNameList);
         ServiceValidation.validateCarNameNull(carNameList);
+        ServiceValidation.validateDuplicateNames(carNameList);
 
         carNames.addAll(carNameList);
 
@@ -28,8 +29,6 @@ public class CarNames {
                 .toList();
     }
 
-
-    // 방어적 복사
     public List<String> getCarNames() {
         return Collections.unmodifiableList(new ArrayList<>(carNames));
     }

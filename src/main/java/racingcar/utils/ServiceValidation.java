@@ -2,7 +2,9 @@ package racingcar.utils;
 
 import racingcar.constants.ErrorMessageType;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class ServiceValidation {
@@ -40,6 +42,14 @@ public class ServiceValidation {
             if(car.length() > 5) {
                 throw new IllegalArgumentException(ErrorMessageType.INVALID_CAR_NAME_LENGTH.getMessage());
             }
+        }
+    }
+
+    public static void validateDuplicateNames(List<String> carNames) {
+        Set<String> setCarNames = new HashSet<>(carNames);
+
+        if(setCarNames.size() != carNames.size()) {
+            throw new IllegalArgumentException(ErrorMessageType.INVALID_DUPLICATE_NAME.getMessage());
         }
     }
 
