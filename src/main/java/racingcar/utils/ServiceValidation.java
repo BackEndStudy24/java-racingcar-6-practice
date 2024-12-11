@@ -15,6 +15,12 @@ public class ServiceValidation {
         }
     }
 
+    public static void validateMoveCount(int moveCount) {
+        if(moveCount < 1) {
+            throw new IllegalArgumentException(ErrorMessageType.INVALID_MOVE_COUNT.getMessage());
+        }
+    }
+
     public static void validateIsNumeric(String input) {
         if (!NUMBER_PATTERN.matcher(input).matches()) {
             throw new IllegalArgumentException(ErrorMessageType.INVALID_MOVE_COUNT.getMessage());
