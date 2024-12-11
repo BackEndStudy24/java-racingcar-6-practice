@@ -24,7 +24,15 @@ public class ServiceValidation {
     public static void validateCarNameNull(List<String> carNames) {
         for(String car : carNames) {
             if(car.isBlank()) {
-                throw new IllegalArgumentException(ErrorMessageType.INVALID_CAR_NAME.getMessage());
+                throw new IllegalArgumentException(ErrorMessageType.INVALID_CAR_NAME_NULL.getMessage());
+            }
+        }
+    }
+
+    public static void validateCarNameLength(List<String> carNames) {
+        for(String car : carNames) {
+            if(car.length() > 5) {
+                throw new IllegalArgumentException(ErrorMessageType.INVALID_CAR_NAME_LENGTH.getMessage());
             }
         }
     }
