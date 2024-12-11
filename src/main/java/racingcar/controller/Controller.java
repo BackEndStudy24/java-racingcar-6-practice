@@ -48,6 +48,9 @@ public class Controller {
     }
 
     private void printWinners() {
-        winners.printGetWinner();
+        winners.setWinners();
+        String winner = winners.getWinners().toString();
+        winner = winner.replaceAll("[\\[\\]]", "");
+        OutputView.printGameWinners(winner);
     }
 }

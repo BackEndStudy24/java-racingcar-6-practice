@@ -15,15 +15,11 @@ public class CarNames {
 
     public void setCarNames(String rawInput) {
         List<String> carNameList = separateComma(rawInput);
-        checkedCarNames(carNames);
+        ServiceValidation.validateCarNameLength(carNameList);
+        ServiceValidation.validateCarNameNull(carNameList);
 
         carNames.addAll(carNameList);
 
-    }
-
-    private void checkedCarNames(List<String> rawCarNames) {
-        ServiceValidation.validateCarNameLength(rawCarNames);
-        ServiceValidation.validateCarNameNull(rawCarNames);
     }
 
     private List<String> separateComma(String rawInput) {

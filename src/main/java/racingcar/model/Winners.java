@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Winners {
@@ -13,7 +14,7 @@ public class Winners {
         this.moveCar = moveCar;
     }
 
-    public void printGetWinner() {
+    public void setWinners() {
         int maxCount = 0 ;
 
         for (int i = 0; i < moveCar.getCars().size(); i++) {
@@ -26,8 +27,10 @@ public class Winners {
             }
 
         }
-        System.out.println(winners);
 
     }
 
+    public List<String> getWinners() {
+        return Collections.unmodifiableList(new ArrayList<>(winners));
+    }
 }
